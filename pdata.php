@@ -30,42 +30,42 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Amount Paid</label>
-                <input type="text" class="form-control" id="amountpaid" aria-describedby="emailHelp">
+                <input type="text" class="form-control" name="amountpaid" aria-describedby="emailHelp">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">start date</label>
-                <input type="text" class="form-control" id="startdate" aria-describedby="emailHelp">
+                <input type="text" class="form-control" name="startdate" aria-describedby="emailHelp">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">end date</label>
-                <input type="text" class="form-control" id="enddate" aria-describedby="emailHelp">
+                <input type="text" class="form-control" name="enddate" aria-describedby="emailHelp">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Company name</label>
-                <input type="text" class="form-control" id="companyname" aria-describedby="emailHelp">
+                <input type="text" class="form-control" name="companyname" aria-describedby="emailHelp">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Phone 1 *</label>
-                <input type="text" class="form-control" id="phone1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" name="phone1" aria-describedby="emailHelp">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Phone 2</label>
-                <input type="text" class="form-control" id="phone2" aria-describedby="emailHelp">
+                <input type="text" class="form-control" name="phone2" aria-describedby="emailHelp">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Phone 3</label>
-                <input type="text" class="form-control" id="phone3" aria-describedby="emailHelp">
+                <input type="text" class="form-control" name="phone3" aria-describedby="emailHelp">
 
             </div>
             <div class="form-group">
                 <label for="agent">Agent</label>
-                <select class="form-control" id="status">
+                <select class="form-control" name="agent">
                     <?php
     include("database/db_connection.php");  
     $view_users_query="select * from agent";//select query for viewing users.  
@@ -86,7 +86,7 @@ while($row = mysqli_fetch_array($result)) {
             </div>
             <div class="form-group">
                 <label for="installer">Installer</label>
-                <select class="form-control" id="status">
+                <select class="form-control" name="installer">
                     <option>Activate</option>
                     <option>Deactivate</option>
 
@@ -95,7 +95,7 @@ while($row = mysqli_fetch_array($result)) {
             </div>
             <div class="form-group">
                 <label for="status">Status</label>
-                <select class="form-control" id="status">
+                <select class="form-control" name="status">
                     <option>Activate</option>
                     <option>Deactivate</option>
 
