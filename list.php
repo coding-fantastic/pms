@@ -32,6 +32,9 @@
 
 <body>
     <?php
+    include("database/db_connection.php");  
+    $view_users_query="select * from users";//select query for viewing users.  
+    $result=mysqli_query($dbcon,$view_users_query);//here run the sql query. 
 if (mysqli_num_rows($result) > 0) {
 ?>
     <table>
@@ -49,6 +52,7 @@ $i=0;
 while($row = mysqli_fetch_array($result)) {
 ?>
         <tr>
+        <td><?php echo $i; ?></td>
             <td><?php echo $row["name"]; ?></td>
             <td><?php echo $row["phone"]; ?></td>
             <td><?php echo $row["email"]; ?></td>

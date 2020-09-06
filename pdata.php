@@ -23,70 +23,82 @@
 
 <body>
     <div class="container">
-        <form>
+        <form action="insertpdata.php" method="POST"> 
             <div class="form-group">
                 <label>Pdata Form</label>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Amount Paid</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="amountpaid" aria-describedby="emailHelp">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">start date</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="startdate" aria-describedby="emailHelp">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">end date</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="enddate" aria-describedby="emailHelp">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Company name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="companyname" aria-describedby="emailHelp">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Phone 1 *</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="phone1" aria-describedby="emailHelp">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Phone 2</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="phone2" aria-describedby="emailHelp">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Phone 3</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="phone3" aria-describedby="emailHelp">
 
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Agent</label>
+                <label for="agent">Agent</label>
                 <select class="form-control" id="status">
-                    <option>Activate</option>
-                    <option>Deactivate</option>
-                    
+                    <?php
+    include("database/db_connection.php");  
+    $view_users_query="select * from agent";//select query for viewing users.  
+    $result=mysqli_query($dbcon,$view_users_query);//here run the sql query. 
+if (mysqli_num_rows($result) > 0) {
+   // $i=0;
+while($row = mysqli_fetch_array($result)) {
+?>
+                    <option value="<?php echo $row['agent_id'] ; ?>"><?php echo $row['name'] ; ?></option>
+
+                    <?php
+                      }
+                } ?>
+                   
+
                 </select>
 
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Installer</label>
+                <label for="installer">Installer</label>
                 <select class="form-control" id="status">
                     <option>Activate</option>
                     <option>Deactivate</option>
-                    
+
                 </select>
 
             </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Status</label>
+                <label for="status">Status</label>
                 <select class="form-control" id="status">
                     <option>Activate</option>
                     <option>Deactivate</option>
-                    
+
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
