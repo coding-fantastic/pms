@@ -50,7 +50,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Phone 1 *</label>
-                <input type="text" class="form-control" name="phone1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" name="phone1" aria-describedby="emailHelp" required>
 
             </div>
             <div class="form-group">
@@ -85,14 +85,27 @@ while($row = mysqli_fetch_array($result)) {
 
             </div>
             <div class="form-group">
-                <label for="installer">Installer</label>
-                <select class="form-control" name="installer">
-                    <option>Activate</option>
-                    <option>Deactivate</option>
+                <label for="agent">Installer</label>
+                <select class="form-control" name="agent">
+                    <?php
+    include("database/db_connection.php");  
+    $view_users_query="select * from installer";//select query for viewing users.  
+    $result=mysqli_query($dbcon,$view_users_query);//here run the sql query. 
+if (mysqli_num_rows($result) > 0) {
+   // $i=0;
+while($row = mysqli_fetch_array($result)) {
+?>
+                    <option value="<?php echo $row['installer_id'] ; ?>"><?php echo $row['name'] ; ?></option>
+
+                    <?php
+                      }
+                } ?>
+                   
 
                 </select>
 
             </div>
+            
             <div class="form-group">
                 <label for="status">Status</label>
                 <select class="form-control" name="status">

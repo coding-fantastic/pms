@@ -34,8 +34,9 @@
             <a href="pdata.php"><button class="btn btn-primary">pdata</button></a>
             <a href="pagent.php"><button class="btn btn-primary">Agent</button></a>
             <a href="pinstaller.php"><button class="btn btn-primary">Installer</button></a>
+            <a href="pdata.php"><button class="btn btn-primary">Home</button></a>
 
-            <h1 align="center">All the Users</h1>
+            <h1 align="center">All the Agents</h1>
 
             <div class="table-responsive">
                 <!--this is used for responsive display in mobile and other devices-->
@@ -54,7 +55,7 @@
 
                     <?php  
             include("database/db_connection.php");  
-            $view_users_query="select * from users";//select query for viewing users.  
+            $view_users_query="select * from agent";//select query for viewing users.  
             $run=mysqli_query($dbcon,$view_users_query);//here run the sql query.  
       
             while($row=mysqli_fetch_array($run))//while look to fetch the result and store in a array $row.  
