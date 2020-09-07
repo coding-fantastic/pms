@@ -23,6 +23,7 @@
 
 <body>
     <div class="container">
+        <a href="view.php"><button class="btn btn-primary">List</button></a>
         <form action="insertpdata.php" method="POST"> 
             <div class="form-group">
                 <label>Pdata Form</label>
@@ -86,7 +87,7 @@ while($row = mysqli_fetch_array($result)) {
             </div>
             <div class="form-group">
                 <label for="agent">Installer</label>
-                <select class="form-control" name="agent">
+                <select class="form-control" name="installer">
                     <?php
     include("database/db_connection.php");  
     $view_users_query="select * from installer";//select query for viewing users.  
