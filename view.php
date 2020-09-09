@@ -3,6 +3,11 @@
  include "header.php";
 ?>
 
+<div class="row">
+    <div class="col-12">
+        <div class="card m-b-30">
+            <div class="card-body">
+
         <div class="table-scrol">
             <!--<a href="pdata.php"><button class="btn btn-primary">Companies</button></a>
             <a href="pagent.php"><button class="btn btn-primary">Agent</button></a>
@@ -101,6 +106,15 @@
             </div>
             
         </div>
+
+                
+                
+                
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div> <!-- end row -->
+
 
 
 <?php
