@@ -1,40 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-    <!-- JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-    </script>
-    
-    
-    <!--start of datepicker-->
-      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
-      <script>
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
-  </script>
-<!--    end of datepicker-->
-    
-    
-    <?php
+    include("database/db_connection.php");
     
     $amountpaid = $startdate = $enddate= $companyname= $phone1 =$phone2= $phone3 = $agent =$installer= $status="";
     
@@ -57,111 +23,174 @@ while($row = mysqli_fetch_array($result)) {
 }
 }
     ?>
-    
-    <title>Document</title>
+
+<!--<title>Document</title>
     
 </head>
 
 <body>
-    <div class="container">
-        <a href="view.php"><button class="btn btn-primary">List</button></a>
-        <form action="insertpdata.php" method="POST"> 
-            <div class="form-group">
-                <label>Company Form</label>
+    <div class="container">-->
 
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Amount Paid</label>
-                <input type="text" class="form-control" value="" name="amountpaid" aria-describedby="emailHelp">
-
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">start date</label>
-                <input type="text" class="form-control" value="" id="datepicker" name="startdate" aria-describedby="emailHelp">
-
-            </div>
-            <div class="form-group">
-                <label >end date</label>
-                <input type="text" class="form-control"  id="datepicker" name="enddate" value="">
-
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Company name</label>
-                <input type="text" class="form-control" name="companyname" aria-describedby="emailHelp" value="">
-
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Phone 1 *</label>
-                <input type="text" class="form-control" name="phone1" aria-describedby="emailHelp" value="" required>
-
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Phone 2</label>
-                <input type="text" class="form-control" name="phone2" aria-describedby="emailHelp" value="">
-
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Phone 3</label>
-                <input type="text" class="form-control" name="phone3" aria-describedby="emailHelp"  >
-
-            </div>
-            <div class="form-group">
-                <label for="agent">Agent</label>
-                <select class="form-control" name="agent" value="23">
-                    <?php
-    include("database/db_connection.php");  
-    $view_users_query="select * from agent2";//select query for viewing users.  
-    $result=mysqli_query($dbcon,$view_users_query);//here run the sql query. 
-if (mysqli_num_rows($result) > 0) {
-   // $i=0;
-while($row = mysqli_fetch_array($result)) {
+<?php
+ include "header.php";
 ?>
-                    <option value="<?php echo $row['agent_id'] ; ?>"><?php echo $row['name'] ; ?></option>
 
-                    <?php
-                      }
-                } ?>
-                   
+<!--<a href="view.php"><button class="btn btn-primary">List</button></a>-->
 
-                </select>
 
+
+
+
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <div class="btn-group float-right">
+                <ol class="breadcrumb hide-phone p-0 m-0">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Components</a></li>
+
+                    <li class="breadcrumb-item active">Form Elements</li>
+                </ol>
             </div>
-            <div class="form-group">
-                <label for="installer">Installer</label>
-                <select class="form-control" name="installer">
-                    <?php
-    include("database/db_connection.php");  
-    $view_users_query="select * from installer2";//select query for viewing users.  
-    $result=mysqli_query($dbcon,$view_users_query);//here run the sql query. 
-if (mysqli_num_rows($result) > 0) {
-   // $i=0;
-while($row = mysqli_fetch_array($result)) {
-?>
-                    <option value="<?php echo $row['installer_id'] ; ?>"><?php echo $row['name'] ; ?></option>
-
-                    <?php
-                      }
-                } ?>
-                   
-
-                </select>
-
-            </div>
-            
-            <div class="form-group">
-                <label for="status">Status</label>
-                <select class="form-control" name="status">
-                    
-                    <option value="Active">Activate</option>
-                    <option value="Deactive">Deactivate</option>
-
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+            <h4 class="page-title">Company</h4>
+        </div>
     </div>
+</div>
+<!-- end page title end breadcrumb -->
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card m-b-30">
+            <div class="card-body">
+
+                <h4 class="mt-0 header-title">Textual inputs</h4>
+
+                <form action="insertpdata.php" method="POST">
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Amount Paid</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" value="" placeholder="Amount Paid" id="example-text-input" name="amountpaid">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-date-input" class="col-sm-2 col-form-label">Start Date</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="date" value="" placeholder="date" id="example-date-input" name="startdate">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-date-input" class="col-sm-2 col-form-label">End Date</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="date" value="" placeholder="date" id="example-date-input" name="enddate">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Company Name</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" value="" placeholder="Company Name" id="example-text-input" name="companyname">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Phone 1</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" value="" placeholder="Phone number"  id="example-text-input" name="phone1" maxlength="10" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Phone 2</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" value="" placeholder="Phone number 2" id="example-text-input" name="phone2" maxlength="10">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Phone 3</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" value=""  placeholder="Phone number 3" id="example-text-input" name="phone3" maxlength="10">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Agent</label>
+                        <div class="col-sm-10">
+                            <select class="custom-select" name="agent">
+                                <!--<option selected>Open this select menu</option>-->
+                                <?php
+                                $sql = "select * from agent2";
+                                $result = mysqli_query($dbcon, $sql);
+                                if(mysqli_num_rows($result) > 0){
+                                while($row= mysqli_fetch_array($result)){
+                                    ?>
+                                
+                                <option value="<?php echo $row['name'] ; ?>"><?php echo $row['name'] ; ?></option>
+                                    
+                                    <?php
+                                }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">installer</label>
+                        <div class="col-sm-10">
+                            <select class="custom-select" name="installer">
+                                <!--<option selected>Open this select menu</option>-->
+                                <?php
+                                $sql = "select * from installer2";
+                                $result = mysqli_query($dbcon, $sql);
+                                if(mysqli_num_rows($result) > 0){
+                                while($row= mysqli_fetch_array($result)){
+                                    ?>
+                                
+                                <option value="<?php echo $row['name'] ; ?>"><?php echo $row['name'] ; ?></option>
+                                    
+                                    <?php
+                                }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Status</label>
+                        <div class="col-sm-10">
+                            <select class="custom-select" name="status">
+                                <!--<option selected>Open this select menu</option>-->
+                                <option value="Active">Activate</option>
+                                <option value="Deactive">Deactivate</option>
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div> <!-- end row -->
+
+
+
+
+<?php
+ include "footer.php";
+?>
+
+<!--    </div>
     
     
 </body>
 
-</html>
+</html>-->
