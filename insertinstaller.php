@@ -12,13 +12,13 @@ $type=$_POST['type'];
 
 
  
-$sql = "INSERT INTO agent (name, phone, email,id,type)
+$sql = "INSERT INTO installer2 (name, phone, email,idn,type)
 VALUES ('$name', '$phone', '$email','$id','$type')";
 
 if (mysqli_query($dbcon, $sql)) {
   echo "New record created successfully";
 } else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  echo "Error: " . $sql . "<br>" . mysqli_error($dbcon);
 }
 
 mysqli_close($dbcon);

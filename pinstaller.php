@@ -2,6 +2,24 @@
  include "header.php";
 ?>
 
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <div class="btn-group float-right">
+                <ol class="breadcrumb hide-phone p-0 m-0">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Installer</li>
+                </ol>
+            </div>
+            <h4 class="page-title">Installer</h4>
+        </div>
+    </div>
+</div>
+<!-- end page title end breadcrumb -->
+
+
+
 
 <div class="row">
     <div class="col-12">
@@ -15,7 +33,7 @@
 
         <form action="insertagent.php" method="POST"> 
             <div class="form-group">
-                <label>Agent Form</label>
+                <label>Installer Form</label>
 
             </div>
             <div class="form-group">

@@ -1,6 +1,33 @@
-<?php
- include "header.php";
+<?php 
+include 'init/config/config.php';
+
+//$result = view::fetchCompanyDetails();
+
+include 'init/includes/header.php';
 ?>
+
+<div class='wrapper'>
+    <div class='container-fluid'>
+
+
+
+
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <div class="btn-group float-right">
+                <ol class="breadcrumb hide-phone p-0 m-0">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Agent</li>
+                </ol>
+            </div>
+            <h4 class="page-title">Agent</h4>
+        </div>
+    </div>
+</div>
+<!-- end page title end breadcrumb -->
+
 
 
 
@@ -15,7 +42,7 @@
 
         <form action="insertagent.php" method="POST"> 
             <div class="form-group">
-                <label>Agent Form</label>
+                <h4><label>Agent Form</label></h4>
 
             </div>
             <div class="form-group">
@@ -53,6 +80,10 @@
 </div> <!-- end row -->                
             
                 
+</div>
+</div>
+
+
 <?php
- include "footer.php";
+include 'init/includes/footer.php';
 ?>

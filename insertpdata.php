@@ -25,14 +25,18 @@ $installer=$_POST['installer'];
 $status=$_POST['status'];
 
 
+
  
-$sql = "INSERT INTO pdata (amountpaid, startdate, enddate,companyname,phone1,phone2,phone3,agent,installer,statuss)
+$sql = "INSERT INTO company (amount_paid, start_date, end_date,company_name,phone1,phone2,phone3,agent,installer,statuss)
 VALUES ('$amountpaid', '$startdate', '$enddate','$companyname','$phone1','$phone2','$phone3','$agent','$installer','$status')";
 
 if (mysqli_query($dbcon, $sql)) {
   echo "New record created successfully";
+    ?><script>
+window.location="view.php";
+</script><?php
 } else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  echo "Error: " . $sql . "<br>" . mysqli_error($dbcon);
 }
 
 mysqli_close($dbcon);

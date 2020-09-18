@@ -57,7 +57,7 @@ if(isset($_POST['admin_login']))//this will tell us what to do if some data has 
     $admin_pass=$_POST['admin_pass'];  
     $admin_pass = md5($admin_pass);
 
-    $admin_query="select * from admin where email='$admin_name' AND password='$admin_pass'";  
+    $admin_query="select * from admin where admin_email='$admin_name' AND admin_password='$admin_pass'";  
   
     $run_query=mysqli_query($dbcon,$admin_query);  
   

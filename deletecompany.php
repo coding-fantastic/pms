@@ -7,8 +7,8 @@ include("database/db_connection.php");
 if (isset($_GET['id'])){
     
     $id = $_GET['id'];
-    echo "id is <br>";
-    echo $id;
+    /*echo "id is <br>";
+    echo $id;*/
     
     
     $sql = "
